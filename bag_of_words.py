@@ -112,6 +112,8 @@ def logistic(learning_rate):
         return accuracy * 100
 
 
+
+# Checking our model's accuracy and determining hyper parameters
 if __name__ == '__main__':
     LearningRates = [ 0.0001, 0.001, 0.01, 0.1, 1.0, 1.5]
     LaplaceSmoothing =[ 0.1, 0.5, 1.0, 10, 100]
