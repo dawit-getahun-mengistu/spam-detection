@@ -3,7 +3,7 @@ import os
 import csv
 import random
 import string
-
+# 
 BASE_DIR = './bbc';
 # LABELS = ['business', 'entertainment', 'politics', 'sport', 'tech']
 LABELS = ['ham', 'spam']

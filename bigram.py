@@ -41,7 +41,7 @@ def bigram_distribution(datalist):
         counter_sorted = dict(sorted(counter.items(), key=lambda item: item[1], reverse=True))
         frequency_distribution[category_label] = counter_sorted
         
-    # print(frequency_distribution['spam'])
+    # print(frequency_distribution) 
     return frequency_distribution
     
 bi_distribution = bigram_distribution(dataset)

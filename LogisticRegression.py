@@ -1,6 +1,6 @@
 import math
 
-
+# 
 def sigmoid(z):
     """
     Sigmoid function to compute the activation.

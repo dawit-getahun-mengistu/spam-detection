@@ -1,6 +1,6 @@
 import math
 
-
+# 
 class NaiveBayes:
     def __init__(self, learning_rate=1.0, alpha=1.0):
         """

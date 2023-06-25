@@ -7,7 +7,7 @@ from collections import Counter, defaultdict, namedtuple
 
 BASE_DIR = './data_archive';
 LABELS = ['ham', 'spam']
-
+# 
 def create_dataset():
     dataset = []
     
