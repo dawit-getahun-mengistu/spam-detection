@@ -13,8 +13,8 @@ def main():
     # app.add_handler(CallbackQueryHandler(button_click))
     app.add_handler(CommandHandler('help', help_command))
     # app.add_handler(CommandHandler('custom', custom_command))
-    app.add_handler(CommandHandler('sms', sms_command))
-    app.add_handler(CommandHandler('email', email_command))
+    app.add_handler(CommandHandler('chat', handle_chat_command))
+    app.add_handler(CommandHandler('email', handle_email_command))
 
     # Messages
     app.add_handler(MessageHandler(filters.TEXT, handle_message))

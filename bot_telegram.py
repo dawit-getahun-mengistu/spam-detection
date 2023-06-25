@@ -152,14 +152,14 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def custom_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('custom command text')
 
-async def sms_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def handle_chat_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global use_email_dataset
     global use_sms_dataset
     use_email_dataset = False
     use_sms_dataset = True
     await update.message.reply_text('SMS Spam Detector is Ready!')
 
-async def email_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def handle_email_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global use_email_dataset
     global use_sms_dataset
     use_email_dataset = True
