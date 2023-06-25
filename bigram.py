@@ -4,7 +4,6 @@ from preprocess_sms_data import *
 
 # Feature extraction 2: using Bigrams
 
-# LABELS = ['business', 'entertainment', 'politics', 'sport', 'tech']
 LABELS = ['ham', 'spam']
 
 dataset = setup_dataset()
@@ -26,8 +25,6 @@ def to_bigram(unigrams):
 
 bigram_X_train = tokenize_to_bigrams(training_set)
 
-# bigram_vocabulary = list(set([bigram for document in bigram_X_train for bigram in document]))
-# print(bigram_vocabulary, len(bigram_vocabulary), bigram_vocabulary.count('endofyear clearance'))
 
 
 def bigram_distribution(datalist):
@@ -96,11 +93,6 @@ def vectorize_list(data, vocabulary=vocabulary):
     feature_matrix = []
     for document in data:
         vector = vectorize(document, vocabulary=vocabulary)
-        # for bigram in vocabulary:
-        #     if bigram in document:
-        #         vector.append(1)  # Bigram present in the document
-        #     else:
-        #         vector.append(0)  # Bigram not present in the document
         feature_matrix.append(vector)
     return feature_matrix
 
@@ -155,7 +147,7 @@ def logistic(learning_rate):
         return accuracy * 100
 
 if __name__ == '__main__':
-    LearningRates = [0.01, 0.05, 0.1, 0.3, 0.5, 0.6, 1.0, 1.5]
+    LearningRates = [0.01, 0.05, 0.1, 0.5, 1.0, 1.5]
     LaplaceSmoothing =[ 0.1, 0.5, 1.0, 10, 100]
 
     def get_results_naive():
@@ -172,7 +164,7 @@ if __name__ == '__main__':
             print("learning rate: ", lr,"\t", "accuracy: ", acc)
     
     # get_results_naive()
-    # get_results_logistic()
+    get_results_logistic()
     text = 'free online money making'
     # text = 'We are trying to contact you. URGENT We are trying to contact you Last weekends draw shows u have won a £1000 prize GUARANTEED Call 09064017295 Claim code K52 Valid 12hrs 150p pm'
     # print(change_to_vector(text))
@@ -194,4 +186,4 @@ if __name__ == '__main__':
     logReg.fit(train, test)
     predict = logReg.predict([vectorize(text)])
     print(predict)
-    # print(train)
+    # # print(train)
