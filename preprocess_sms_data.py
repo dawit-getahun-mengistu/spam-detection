@@ -5,19 +5,8 @@ import random
 import string
 # 
 BASE_DIR = './bbc';
-# LABELS = ['business', 'entertainment', 'politics', 'sport', 'tech']
 LABELS = ['ham', 'spam']
 
-# def create_dataset():
-#     with open('bbc_news.csv', 'w', encoding='utf8') as outfile:
-#         for label in LABELS:
-#             dir = '%s/%s' % (BASE_DIR, label)
-#             for filename in os.listdir(dir):
-#                 fullfilename = '%s/%s' % (dir, filename)
-#                 print(fullfilename)
-#                 with open(fullfilename, 'rb') as file:
-#                     text = file.read().decode(errors='replace').replace('\n', '')
-#                     outfile.write('%s\t%s\t%s\n' % (label, filename, text))
 
 # extract the dataset 
 def setup_dataset():
