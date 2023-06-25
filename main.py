@@ -10,9 +10,9 @@ def main():
 
     # Commands
     app.add_handler(CommandHandler('start', start_command))
-    # app.add_handler(CallbackQueryHandler(button_click))
+
     app.add_handler(CommandHandler('help', help_command))
-    # app.add_handler(CommandHandler('custom', custom_command))
+
     app.add_handler(CommandHandler('chat', handle_chat_command))
     app.add_handler(CommandHandler('email', handle_email_command))
 

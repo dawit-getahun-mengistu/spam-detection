@@ -138,10 +138,11 @@ async def button_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('help text')
+    await update.message.reply_text(
+        "Welcome! \n This bot is designed to help you identify and handle spam messages in your Telegram chats. It utilizes advanced machine learning techniques to analyze the content of incoming messages and determine their spam probability. Here's how you can make the most out of this bot: \n  Forward or send any suspicious message to this bot, and it will analyze the content to determine its spam likelihood. \n Please note the following: \n \t - While the spam detection algorithm is highly accurate, it may occasionally produce false positives or false negatives. It's always good to exercise caution and make your own judgment. \n \t - This bot continuously learns from user feedback to improve its spam detection capabilities. Your input is valuable! You can provide feedback on false positives or false negatives to help enhance the bot's accuracy. \n \t - To ensure privacy and data security, this bot does not store any user messages or personal information. The content analysis is performed in real-time and discarded after processing.\n '/chat' - handle text messages through chat \n '/email' - handle email messages "
+)
     
-async def custom_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('custom command text')
+    
 
 async def handle_chat_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global use_email_dataset
@@ -168,18 +169,18 @@ def handle_response(text: str) -> str:
         if use_email_dataset:
             prediction = nb.predict(vector)[0]
             if prediction == 1:
-                return 'spam mail'
+                return 'This email message is more likely to be a spam message'
             elif prediction == 0:
-                return 'ham mail'
+                return 'This email message is less likely to be a spam message'
             
     if logReg_successfully_trained:
         vector = [vectorize_bigram(text)]
         if use_sms_dataset:
             prediction = logReg.predict(vector)[0]
             if prediction == 1:
-                return 'spam sms'
+                return 'This text message is more likely to be a spam message'
             elif prediction == 0:
-                return 'ham sms'
+                return 'This text message is less likely to be a spam message'
             
     else:
         return 'not trained.'
@@ -193,16 +194,6 @@ async def handle_message(update: Update, constext: ContextTypes.DEFAULT_TYPE):
     if text.strip() == '':
         return ''
     
-    # print(f'User ({update.message.chat.id}) in {message_type}: "{text}"')
-    
-    
-    # if text == menu_options[0] and use_sms_dataset and not use_email_dataset:
-    #     switch_models()
-    #     update.message.reply_text('Email spam detector ready')
-    
-    # if text == menu_options[1] and use_email_dataset and not use_sms_dataset:
-    #     switch_models()
-    #     update.message.reply_text('chat text spam detector ready')
     
     # if text in menu_options: return
     if text not in menu_options:

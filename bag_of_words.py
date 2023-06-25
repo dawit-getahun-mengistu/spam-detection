@@ -16,7 +16,7 @@ distribution = get_token_distribution(test_dataset[: int(0.8 * len(test_dataset)
 
 
 # Select the most indicative bag of words
-def select_a_bag_of_words(bag_weight = 5000):
+def select_a_bag_of_words(bag_weight = 600):
     words = []
     repeated = []
     words_per_category = {}
@@ -131,10 +131,10 @@ if __name__ == '__main__':
             acc = logistic(lr)
             print("learning rate: ", lr,"\t", "accuracy: ", acc)
     
-    # get_results_naive()
+    get_results_naive()
     # get_results_logistic()
     
-    # naive(1.0, 0.1)
+    # naive(0.1, 0.1)
     # nb = NaiveBayes(learning_rate=1.0, alpha=1)
     
-    logistic(0.1)
+    # logistic(0.1)
