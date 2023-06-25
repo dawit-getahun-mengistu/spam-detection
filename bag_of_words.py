@@ -16,7 +16,7 @@ distribution = get_token_distribution(test_dataset[: int(0.8 * len(test_dataset)
 
 
 # Select the most indicative bag of words
-def select_a_bag_of_words(bag_weight = 500):
+def select_a_bag_of_words(bag_weight = 5000):
     words = []
     repeated = []
     words_per_category = {}
