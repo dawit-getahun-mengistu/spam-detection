@@ -1,5 +1,5 @@
-################      setting up and training our ML models before starting our bot      ##################
-                            ################################################
+#  setting up and training our ML models before starting our bot 
+ ##################################################################
 
 
 # importing  our machine learning models
@@ -85,7 +85,7 @@ except:
 
 # importing important modules to setup telegram bot
 from typing import final
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, Update
+from telegram import Update
 from telegram.ext import ContextTypes
 
 # importing dotenv for handling environment variables
@@ -111,20 +111,11 @@ def switch_models():
 menu_options = ['text chat spam detector', 'email spam detector']    
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
-    # reply_markup = ReplyKeyboardMarkup(menu_options, one_time_keyboard=True)
+
     await update.message.reply_text(
         'Hello, I am a spam detector bot. I can help you protect yourself from phishing and other malicious activities on Telegram. If you suspect a message or a channel is spam, forward it to me and I will analyze it and give you a report. You can also report spam directly to Telegram by using the @SpamBot contact. Stay safe and enjoy Telegram!'
         )
     
-    # keyboard = [
-    #     [InlineKeyboardButton(menu_options[0], callback_data=menu_options[0])],
-    #     [InlineKeyboardButton(menu_options[1], callback_data=menu_options[1])],
-    # ]
-    # reply_markup = InlineKeyboardMarkup(keyboard)
-    # await update.message.reply_text('Please choose an option:', reply_markup=reply_markup)
-
-    
-    # await update.message.reply_text('Choose the type of spam dataset you want us to detect: ', reply_markup=reply_markup)
     
     
 async def button_click(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -157,7 +148,7 @@ async def handle_chat_command(update: Update, context: ContextTypes.DEFAULT_TYPE
     global use_sms_dataset
     use_email_dataset = False
     use_sms_dataset = True
-    await update.message.reply_text('SMS Spam Detector is Ready!')
+    await update.message.reply_text('Chat Spam Detector is Ready!')
 
 async def handle_email_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global use_email_dataset
